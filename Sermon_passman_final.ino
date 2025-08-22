@@ -207,7 +207,6 @@ void loop() {
       }
       Serial.println("Enter your 6 digit PIN:");
       if(attempt_count==0){
-        Serial.end();
         Serial.println("clearing flash");
         clearall();
         resetFunc();  //call reset
@@ -279,6 +278,7 @@ void loop() {
       else
       {
         Serial.println("Invalid, enter valid char.");
+        passflagprt = true;
       }
      }//infochar length
      else // infochar length exceed 1
