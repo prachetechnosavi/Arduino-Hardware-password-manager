@@ -198,6 +198,11 @@ void loop() {
     }
     else
     {
+      if(attempt_count==0){
+        Serial.println("clearing flash");
+        clearall();
+        resetFunc();  //call reset
+      }
       Serial.print("Wrong PIN ");
       attempt_count -= 1;
       Serial.print(attempt_count);
@@ -206,11 +211,6 @@ void loop() {
         Serial.println("last attempt. Wrong pin will erase data.");
       }
       Serial.println("Enter your 6 digit PIN:");
-      if(attempt_count==0){
-        Serial.println("clearing flash");
-        clearall();
-        resetFunc();  //call reset
-      }
     }
    }
   }
@@ -429,3 +429,4 @@ void loop() {
     resetFunc(); 
   }
 }
+
