@@ -198,13 +198,13 @@ void loop() {
     }
     else
     {
+      attempt_count -= 1;
       if(attempt_count==0){
         Serial.println("clearing flash");
         clearall();
         resetFunc();  //call reset
       }
       Serial.print("Wrong PIN ");
-      attempt_count -= 1;
       Serial.print(attempt_count);
       Serial.println(" attempts left.");
       if(attempt_count==1){
@@ -298,8 +298,8 @@ void loop() {
       if(Serial.available()>0){
          rstime();
          sn = Serial.readString();
-         if(sn.length()>15){
-           Serial.println("Domain name greater than 15.");
+         if(sn.length()>14){
+           Serial.println("Domain name greater than 14.");
            Serial.println("Entry not stored.");
            sn = "";
            entryflag = false;
@@ -318,8 +318,8 @@ void loop() {
       if(Serial.available()>0){
          rstime();
          un = Serial.readString();
-         if(un.length()>15){
-           Serial.println("Username greater than 15.");
+         if(un.length()>14){
+           Serial.println("Username greater than 14.");
            Serial.println("Entry not stored.");
            un = "";
            entryflag = false;
@@ -338,8 +338,8 @@ void loop() {
       if(Serial.available()>0){
          rstime();
          pw = Serial.readString();
-         if(pw.length()>15){
-           Serial.println("Password greater than 15.");
+         if(pw.length()>14){
+           Serial.println("Password greater than 14.");
            Serial.println("Entry not stored.");
            pw = "";
            entryflag = false;
@@ -429,4 +429,5 @@ void loop() {
     resetFunc(); 
   }
 }
+
 
